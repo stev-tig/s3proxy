@@ -138,7 +138,7 @@ jobs:
       - name: Publish to Docker
         if: github.event_name != 'pull_request' && needs.meta.outputs.dockerhub-publish == 'true'
         run: |
-          curl -L https://github.com/regclient/regclient/releases/download/v0.3.5/regctl-linux-amd64 >/tmp/regctl
+          curl -L https://github.com/regclient/regclient/releases/download/v0.5.4/regctl-linux-amd64 >/tmp/regctl
           chmod 755 /tmp/regctl
           for line in $CONTAINER_DEST_TAGS; do echo working on "$line"; /tmp/regctl image copy $SOURCE_CONTAINER $line; done
         env:
